@@ -1,0 +1,52 @@
+[relaychain]
+default_command = "/usr/local/bin/polkadot"
+default_args = [ "-lparachain=debug" ]
+chain = "rococo-local"
+
+	[[relaychain.nodes]]
+	name = "alice"
+	validator = true
+
+	[[relaychain.nodes]]
+	name = "bob"
+	validator = true
+
+	[[relaychain.nodes]]
+	name = "charlie"
+	validator = true
+
+	[[relaychain.nodes]]
+	name = "dave"
+	validator = true
+
+
+
+	
+
+[[parachains]]
+id = 1000
+cumulus_based = true
+	[[parachains.collators]]
+	name = "Organisation-2"
+	validator = true
+	command = "/usr/local/bin/recyclewood"
+	args = ["--force-authoring"]
+[[parachains]]
+id = 1001
+cumulus_based = true
+chain = "contracts-rococo-local"
+	[[parachains.collators]]
+	name = "wood-management"
+	validator = true
+	command = "/usr/local/bin/recyclewood"
+	args = ["--force-authoring"]
+[[parachains]]
+id = 1002
+cumulus_based = true
+chain = "contracts-rococo-dev"
+	[[parachains.collators]]
+	name = "Organisation-1"
+	validator = true
+	command = "/usr/local/bin/recyclewood"
+	args = ["--force-authoring"]
+

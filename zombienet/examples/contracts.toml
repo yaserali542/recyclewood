@@ -1,0 +1,57 @@
+[relaychain]
+default_command = "/usr/local/bin/polkadot-26-06"
+default_args = [ "-lparachain=debug" ]
+chain = "rococo-local"
+
+	[[relaychain.nodes]]
+	name = "alice"
+	validator = true
+
+	[[relaychain.nodes]]
+	name = "bob"
+	validator = true
+
+	[[relaychain.nodes]]
+	name = "charlie"
+	validator = true
+
+	[[relaychain.nodes]]
+	name = "dave"
+	validator = true
+
+[[parachains]]
+id = 1000
+cumulus_based = true
+chain = "contracts-rococo-local"
+
+	# run alice as parachain collator
+	[[parachains.collators]]
+	name = "tick-1"
+	validator = true
+	command = "/usr/local/bin/polkadot-parachain-26-06"
+	args = ["--force-authoring"]
+
+
+[[parachains]]
+id = 1001
+cumulus_based = true
+chain = "contracts-rococo-local"
+
+	# run alice as parachain collator
+	[[parachains.collators]]
+	name = "trick-2"
+	validator = true
+	command = "/usr/local/bin/polkadot-parachain-26-06"
+	args = ["--force-authoring"]
+
+[[parachains]]
+id = 1002
+cumulus_based = true
+chain = "contracts-rococo-local"
+
+	# run alice as parachain collator
+	[[parachains.collators]]
+	name = "track-2"
+	validator = true
+	command = "/usr/local/bin/polkadot-parachain-26-06"
+	args = ["--force-authoring"]
